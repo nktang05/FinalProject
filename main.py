@@ -10,6 +10,8 @@ import seaborn as sns
 import requests
 from bs4 import BeautifulSoup
 
+print("test")
+st.write("h")
 
 #loadData.loadAllData()
 
