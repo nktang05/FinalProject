@@ -78,7 +78,7 @@ def grocery(userSeriesId, result_dict):
 
 
 
-def groceryTable(table, seriesId, result_dict):
+def groceryBox(table, seriesId, result_dict):
     
     # Replace empty strings with NaN
     table['Price'].replace('', pd.NA, inplace=True)
@@ -103,6 +103,7 @@ def groceryTable(table, seriesId, result_dict):
     plt.show()
     st.pyplot(fig)
 
+
 selectFood, selectRegion = menu.menugrocery()
 seriesDict = getSeriesId(selectFood, selectRegion)
 optionsList = list(seriesDict.values())
@@ -111,4 +112,5 @@ option = st.selectbox(
     optionsList)
 selected_key = next(key for key, value in seriesDict.items() if value == option)
 df_table = grocery(selected_key, seriesDict)
-groceryTable(df_table, selected_key, seriesDict)
+groceryBox(df_table, selected_key, seriesDict)
+
