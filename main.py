@@ -37,6 +37,7 @@ line2,  = ax2.plot(data1['Year'], data1['Avg_Obesity_Rate'], label='Obesity Rate
 ax2.set_ylabel('Data2')
 
 ax2.legend(handles=[line1, line2])
+plt.tight_layout()
 plt.title('2 plots')
 
 st.pyplot(fig)
