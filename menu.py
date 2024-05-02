@@ -32,3 +32,16 @@ def menuObesity():
     st.write("Your chosen year", selectYear2)
     
     return selectYear1, selectYear2
+
+
+def menuPop():
+    year = st.slider('Select a range of values',
+    2013, 2023, (2013, 2023))
+
+    region = ["Northeast", "West", "South", "Midwest", 'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Florida', 'Georgia', 'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'National', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Puerto Rico', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
+    selectRegion = st.selectbox(
+        'Select a region?',
+        region)
+    st.write("Your chosen region or state", selectRegion)
+
+    return year, selectRegion

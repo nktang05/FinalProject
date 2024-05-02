@@ -117,3 +117,102 @@ def get_pop_data():
         conn.close()
 
     feed_api_data(data, "population")
+
+def transpose():
+    conn = sqlite3.connect('tang.db', detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
+    cur = conn.cursor()
+
+    ## Your code here
+
+    cur.execute('''
+    CREATE TABLE IF NOT EXISTS popData (
+        Region TEXT,
+        Year TEXT,
+        Population INTEGER
+        );
+        ''')
+
+    cur.execute('''
+        INSERT INTO popData (Region, Year, Population)
+        SELECT
+            Region,
+            '2013' AS Year,
+            [2013] AS Population
+        FROM
+            population
+        UNION ALL
+        SELECT
+            Region,
+            '2014' AS Year,
+            [2014] AS Population
+        FROM
+            population
+        UNION ALL
+        SELECT
+            Region,
+            '2015' AS Year,
+            [2015] AS Population
+        FROM
+            population
+        UNION ALL
+        SELECT
+            Region,
+            '2016' AS Year,
+            [2016] AS Population
+        FROM
+            population
+        UNION ALL
+        SELECT
+            Region,
+            '2017' AS Year,
+            [2017] AS Population
+        FROM
+            population
+        UNION ALL
+        SELECT
+            Region,
+            '2018' AS Year,
+            [2018] AS Population
+        FROM
+            population
+        UNION ALL
+        SELECT
+            Region,
+            '2019' AS Year,
+            [2019] AS Population
+        FROM
+            population
+        UNION ALL
+        SELECT
+            Region,
+            '2020' AS Year,
+            [2020] AS Population
+        FROM
+            population
+        UNION ALL
+        SELECT
+            Region,
+            '2021' AS Year,
+            [2021] AS Population
+        FROM
+            population
+        UNION ALL
+        SELECT
+            Region,
+            '2022' AS Year,
+            [2022] AS Population
+        FROM
+            population
+        UNION ALL
+        SELECT
+            Region,
+            '2023' AS Year,
+            [2023] AS Population
+        FROM
+            population;
+    ''')
+
+    conn.commit()
+    conn.close()
+
+transpose()
