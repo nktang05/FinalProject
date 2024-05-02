@@ -3,7 +3,7 @@ import streamlit as st
 
 
 def menugrocery():
-    foodType = ["beef", "chicken", "bread", "apples"]
+    foodType = ["beef", "chicken", "bread", "apples", "candy", "sugar", "ice cream"]
     region = ["Northeast", "West", "South", "Midwest"]
 
     
