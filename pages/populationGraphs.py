@@ -17,4 +17,3 @@ Streamlit. We're generating a bunch of random numbers in a loop for around
 year, location1, location2 = menu.menuPop()
 population.avgPop(location1, location2, year[0], year[1])
 
-progress_bar = st.sidebar.progress(0)
