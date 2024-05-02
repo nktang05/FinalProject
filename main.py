@@ -140,25 +140,6 @@ def groceryTable(table, result_dict):
     st.pyplot(fig)
 
 
-"""
-selectFood, selectRegion = menu.menu()
-
-
-
-seriesDict = getSeriesId(selectFood, selectRegion)
-
-optionsList = list(seriesDict.values())
-
-option = st.selectbox(
-    'What option would you like?',
-    optionsList)
-
-selected_key = next(key for key, value in seriesDict.items() if value == option)
-
-grocery(selected_key, seriesDict)
-groceryTable(selected_key, seriesDict)
-"""
-
 selectFood, selectRegion = menu.menu()
 seriesDict = getSeriesId(selectFood, selectRegion)
 optionsList = list(seriesDict.values())
