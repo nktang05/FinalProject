@@ -15,6 +15,7 @@ from bs4 import BeautifulSoup
 
 #loadData.loadAllData()
 
+graph = menu.menuUnion()
 
 selectFood, selectRegion = menu.menugrocery()
 seriesDict = grocery.getSeriesId(selectFood, selectRegion)
@@ -29,7 +30,6 @@ obe = obesity.obesityRegion(selectRegion)
 
 pop = population.singlePop(selectRegion)
 
-graph = menu.menuUnion()
 fig, ax = plt.subplots()
 
 if (graph == "Food Prices and Obesity Rates"):
