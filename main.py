@@ -12,7 +12,7 @@ print("hi")
 
 print("data loaded")
 
-loadObesity.get_obesity_data()
+#loadObesity.get_obesity_data()
 
 conn = sqlite3.connect('tang.db', detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
 cur = conn.cursor()
