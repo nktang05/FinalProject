@@ -6,6 +6,9 @@ def menugrocery():
     foodType = ["beef", "chicken", "bread", "apples"]
     region = ["Northeast", "West", "South", "Midwest"]
 
+    selectRegion = "Northeast"
+    selectFood = "beef"
+    
     selectRegion = st.selectbox(
         'Select a region?',
         region, placeholder = "Northeast")
