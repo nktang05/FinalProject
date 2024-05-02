@@ -19,9 +19,6 @@ graph = menu.menuUnion()
 
 selectFood, selectRegion = menu.menugrocery()
 
-
-
-
 seriesDict = grocery.getSeriesId(selectFood, selectRegion)
 optionsList = list(seriesDict.values())
 option = st.selectbox(
