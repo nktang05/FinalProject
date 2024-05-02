@@ -119,7 +119,7 @@ def obesityRegionCompare(location1, location2, yearStart = None, yearEnd = None)
     data3 = pd.read_sql(sql_query3, conn)
     
     # Print the results
-    print(data2)
+    #print(data2)
     
     # Plot the data
     fig = plt.figure()

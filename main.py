@@ -32,12 +32,12 @@ food = grocery.grocery(selected_key, seriesDict)
 
 obe = obesity.obesityRegion(selectRegion)
 
-print("Data2")
+
 pop = population.singlePop(selectRegion)
 
 food_price_avg = food.groupby("Year")['Price'].mean()
 
-print(food_price_avg.index)
+
 
 fig, ax = plt.subplots()
 

@@ -100,7 +100,6 @@ def groceryBox(table, seriesId, result_dict):
     plt.ylabel('Price')
     
     plt.tight_layout()
-    plt.show()
     st.pyplot(fig)
 
 

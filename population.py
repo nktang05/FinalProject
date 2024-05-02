@@ -76,7 +76,7 @@ def avgPop(location1, location2, yearStart = None, yearEnd = None):
     data3 = pd.read_sql_query(sql_query3, conn)
     
     # Print the results
-    print(data2)
+    #print(data2)
     
     # Close the connection
     conn.close()
@@ -128,7 +128,7 @@ def singlePop(location1, yearStart = None, yearEnd = None):
     data2['Year'] = data2['Year'].astype(int)
 
     # Print the results
-    print(data2)
+    #print(data2)
     
     # Close the connection
     conn.close()
