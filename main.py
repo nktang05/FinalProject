@@ -10,9 +10,6 @@ import seaborn as sns
 import requests
 from bs4 import BeautifulSoup
 
-print("test")
-st.write("h")
-
 #loadData.loadAllData()
 
 def locationString(location):
@@ -95,7 +92,7 @@ def obesityRegion(location1, location2, yearStart = None, yearEnd = None):
 
     # Add labels and title
     plt.xlabel('Year')
-    plt.ylabel('Population')
+    plt.ylabel('Obestiy Rate')
     plt.title(f"Average Obesity Rated in {location1} vs {location2} from {yearStart} to {yearEnd}")
 
     # Add legend
