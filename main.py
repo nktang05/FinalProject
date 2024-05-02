@@ -51,26 +51,6 @@ def getSeriesId(userItem, location):
 
 
 
-def feed_data(df, table_name):
-    conn = sqlite3.connect('tang.db', detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
-    cur = conn.cursor()
-    
-    
-    ### Write Your code here ###
-    
-    # set to sql table
-    df.to_sql(table_name, conn, if_exists='replace')
-
-    ### Your code ends here ###
-    
-    cur.execute(f'SELECT * FROM {table_name} LIMIT 2')
-    return_val = cur.fetchall()
-    print(return_val)
-
-    conn.commit()
-    conn.close()
-
-
 def grocery(userSeriesId, result_dict):
     url = f"https://data.bls.gov/timeseries/{userSeriesId}?amp%253bdata_tool=XGtable&output_view=data&include_graphs=true"
     food = result_dict[userSeriesId]
@@ -100,43 +80,34 @@ def grocery(userSeriesId, result_dict):
         for col in df.columns:
             if row[col] is not None:
                 df_table.loc[len(df_table)] = [index, col, row[col]]
+    return df_table
                 
 
-    feed_data(df_table, userSeriesId)
 
-def groceryTable(table, result_dict):
-    # Connect to the database
-    conn = sqlite3.connect('tang.db', detect_types=sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES)
-    
-    # Execute the SQL query and load the results into a DataFrame
-    sql_query2 = "SELECT * FROM {}".format(table)
-    data2 = pd.read_sql(sql_query2, conn)
-    
-    # Close the connection
-    conn.close()
-    
-    
+
+def groceryTable(table, seriesId, result_dict):
     
     # Replace empty strings with NaN
-    data2['Price'].replace('', pd.NA, inplace=True)
+    table['Price'].replace('', pd.NA, inplace=True)
     
     # Convert 'Price' column from string to numeric
-    data2['Price'] = pd.to_numeric(data2['Price'], errors='coerce')
+    table['Price'] = pd.to_numeric(table['Price'], errors='coerce')
     
     # Sort the data frame by 'Year'
-    data2_sorted = data2.sort_values(by='Year')
+    table_sorted = table.sort_values(by='Year')
     
     
     # Plot box-and-whisker for max and min prices
     fig = plt.figure(figsize=(10, 6))
     
     # Box-and-whisker plot
-    sns.boxplot(x='Year', y='Price', data=data2_sorted, whis=[0, 100])
-    plt.title('Box-and-Whisker Plot for Prices of ' + result_dict[table])
+    sns.boxplot(x='Year', y='Price', data=table_sorted, whis=[0, 100])
+    plt.title('Box-and-Whisker Plot for Prices of ' + result_dict[seriesId])
     plt.xlabel('Year')
     plt.ylabel('Price')
     
     plt.tight_layout()
+    plt.show()
     st.pyplot(fig)
 
 
@@ -147,5 +118,5 @@ option = st.selectbox(
     'What option would you like?',
     optionsList)
 selected_key = next(key for key, value in seriesDict.items() if value == option)
-grocery(selected_key, seriesDict)
-groceryTable(selected_key, seriesDict)
+table = grocery(selected_key, seriesDict)
+groceryTable(table, selected_key, seriesDict)
