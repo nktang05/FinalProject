@@ -66,7 +66,8 @@ elif(graph == "Population and Obesity Rates"):
     ax.set_ylabel('Obesity Rates')
 
     ax2 = ax.twinx()
-    line2,  = ax2.plot(pop["Year"], pop['avg_population'], label = 'Population', color = "green")
+    #line2,  = ax2.plot(pop["Year"], pop['avg_population'], label = 'Population', color = "green")
+    line2,  = ax2.plot(obe['Year'], obe['Avg_Obesity_Rate'], label='Obesity Rate', color = "green")
     ax2.set_ylabel('Population')
 
 
