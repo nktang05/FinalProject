@@ -3,7 +3,7 @@ import streamlit as st
 
 
 def menugrocery():
-    foodType = ["beef", "chicken", "bread", "apples", "candy", "sugar", "ice cream"]
+    #foodType = ["beef", "chicken", "bread", "apples", "candy", "sugar", "ice cream"]
     region = ["Northeast", "West", "South", "Midwest"]
 
     
@@ -12,12 +12,17 @@ def menugrocery():
         region, placeholder = "Northeast")
     st.write("Your chosen region", selectRegion)
 
+    """
     selectFood = st.selectbox(
         'Select a item?',
         foodType, placeholder = "beef")
     st.write("Your chosen food item", selectFood)
-
+    """
     
+    selectFood = st.text_input('Select Food Type', 'beef')
+    st.write("Your chosen food item", selectFood)
+
+    selectFood.strip()
 
     return selectFood, selectRegion
 
