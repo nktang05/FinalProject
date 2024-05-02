@@ -47,3 +47,18 @@ def menuPop():
     st.write("You selected:", selectRegion2)
 
     return year, selectRegion1, selectRegion2
+
+def menuObestiyRegion():
+
+    year = st.slider('Select a range of values',
+    2011, 2022, (2011, 2022))
+
+    region = ["Northeast", "West", "South", "Midwest", 'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'District of Columbia', 'Florida', 'Georgia', 'Guam', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'National', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Puerto Rico', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming']
+   
+    selectRegion1 = st.selectbox('Select the first region or state', region)
+    st.write("You selected:", selectRegion1)
+
+    selectRegion2 = st.selectbox('Select the second region or state', region)
+    st.write("You selected:", selectRegion2)
+
+    return year, selectRegion1, selectRegion2
