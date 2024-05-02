@@ -10,13 +10,17 @@ def menugrocery():
         'Select a region?',
         region)
     st.write("Your chosen region", selectRegion)
-    
+
     selectFood = st.selectbox(
         'Select a item?',
         foodType)
     st.write("Your chosen food item", selectFood)
 
-    
+    if (selectRegion not in region):
+        selectRegion = "Northeast"
+
+    if (selectFood not in foodType):
+        selectFood = "beef"
     
     return selectFood, selectRegion
 
