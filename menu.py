@@ -6,9 +6,6 @@ def menugrocery():
     foodType = ["beef", "chicken", "bread", "apples"]
     region = ["Northeast", "West", "South", "Midwest"]
 
-    selectRegion = "Northeast"
-    selectFood = "beef"
-    
     selectRegion = st.selectbox(
         'Select a region?',
         region, placeholder = "Northeast")
@@ -19,8 +16,14 @@ def menugrocery():
         foodType, placeholder = "beef")
     st.write("Your chosen food item", selectFood)
 
+    submit = st.form_submit_button(label="Submit")
+
+    if submit == True:
+        return selectFood, selectRegion
+    else:
+        menugrocery()
     
-    return selectFood, selectRegion
+    
 
 def menuObesity():
     years = [2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022]
