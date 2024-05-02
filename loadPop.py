@@ -136,77 +136,77 @@ def transpose():
         INSERT INTO popData (Region, Year, Population)
         SELECT
             Region,
-            '2013' AS Year,
+            2013 AS Year,
             [2013] AS Population
         FROM
             population
         UNION ALL
         SELECT
             Region,
-            '2014' AS Year,
+            2014 AS Year,
             [2014] AS Population
         FROM
             population
         UNION ALL
         SELECT
             Region,
-            '2015' AS Year,
+            2015 AS Year,
             [2015] AS Population
         FROM
             population
         UNION ALL
         SELECT
             Region,
-            '2016' AS Year,
+            2016 AS Year,
             [2016] AS Population
         FROM
             population
         UNION ALL
         SELECT
             Region,
-            '2017' AS Year,
+            2017 AS Year,
             [2017] AS Population
         FROM
             population
         UNION ALL
         SELECT
             Region,
-            '2018' AS Year,
+            2018 AS Year,
             [2018] AS Population
         FROM
             population
         UNION ALL
         SELECT
             Region,
-            '2019' AS Year,
+            2019 AS Year,
             [2019] AS Population
         FROM
             population
         UNION ALL
         SELECT
             Region,
-            '2020' AS Year,
+            2020 AS Year,
             [2020] AS Population
         FROM
             population
         UNION ALL
         SELECT
             Region,
-            '2021' AS Year,
+            2021 AS Year,
             [2021] AS Population
         FROM
             population
         UNION ALL
         SELECT
             Region,
-            '2022' AS Year,
+            2022 AS Year,
             [2022] AS Population
         FROM
             population
         UNION ALL
         SELECT
             Region,
-            '2023' AS Year,
+            2023 AS Year,
             [2023] AS Population
         FROM
             population;
