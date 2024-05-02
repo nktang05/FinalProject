@@ -74,6 +74,6 @@ def unionGraphs():
     ax2.legend(handles=[line1, line2])
 
     plt.tight_layout()
-    plt.title('2 plots')
+    plt.title(f" {graph} over time" )
 
     st.pyplot(fig)
