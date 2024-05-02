@@ -4,3 +4,4 @@ openpyxl
 bs4
 matplotlib
 seaborn
+lmxl
