@@ -82,3 +82,11 @@ if selectFood is not None and selectRegion is not None:
 
         st.pyplot(fig)
 
+elif selectFood is None:
+    st.write("select Food")
+
+elif selectRegion is None:
+    st.write("select region")
+
+else:
+    st.write("other error")
