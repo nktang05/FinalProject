@@ -71,6 +71,23 @@ def avgPop(location, yearStart = None, yearEnd = None):
     # Close the connection
     conn.close()
 
+    # Plot the data
+    fig = plt.figure()
+    plt.plot(data2['Year'], data2['avg_population'], label='Average Population')
+
+
+    # Add labels and title
+    plt.xlabel('Year')
+    plt.ylabel('Population')
+    plt.title(f"Average Population in {location} from {yearStart} to {yearEnd}")
+
+    # Add legend
+    plt.legend()
+
+    plt.tight_layout()  # Adjust layout to prevent clipping of x-axis labels
+    st.pyplot(fig)
+
+
 year, location = menu.menuPop()
 myLoc = locationString("West")
 avgPop(myLoc, year[0], year[1])
