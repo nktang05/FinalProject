@@ -73,6 +73,10 @@ def grocery(userSeriesId, result_dict):
         for col in df.columns:
             if row[col] is not None:
                 df_table.loc[len(df_table)] = [index, col, row[col]]
+
+    df_table = df_table[df_table['Price'] != '\xa0']
+    df_table['Price'] = df_table['Price'].astype(float)
+    
     return df_table
                 
 

@@ -26,15 +26,22 @@ option = st.selectbox(
 selected_key = next(key for key, value in seriesDict.items() if value == option)
 food = grocery.grocery(selected_key, seriesDict)
 
+
+
+
 obe = obesity.obesityRegion(selectRegion)
 
 pop = population.singlePop(selectRegion)
+
+food_price_avg = food.groupby("Year")['Price'].mean()
+
+print(food_price_avg.index)
 
 fig, ax = plt.subplots()
 
 if (graph == "Food Prices and Obesity Rates"):
 
-    line1, = ax.plot(food['Year'], food['Price'], linestyle = "--", color = "blue", label='Price')
+    line1, = ax.plot(food_price_avg.index, food_price_avg, linestyle = "--", color = "blue", label='Price')
     ax.set_xlabel('Years')
     ax.set_ylabel('Food Prices')
 
@@ -44,7 +51,7 @@ if (graph == "Food Prices and Obesity Rates"):
 
 elif(graph == "Food Prices and Population"):
 
-    line1, = ax.plot(food['Year'], food['Price'], linestyle = "--", color = "blue", label='Price')
+    line1, = ax.plot(food_price_avg.index, food_price_avg, linestyle = "--", color = "blue", label='Price')
     ax.set_xlabel('Years')
     ax.set_ylabel('Food Prices')
 
