@@ -26,9 +26,6 @@ option = st.selectbox(
 selected_key = next(key for key, value in seriesDict.items() if value == option)
 food = grocery.grocery(selected_key, seriesDict)
 
-
-
-
 obe = obesity.obesityRegion(selectRegion)
 
 print("Data2")
