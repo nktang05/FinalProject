@@ -97,7 +97,6 @@ def obesityRegion(location1, location2, yearStart = None, yearEnd = None):
 
     # Add legend
     plt.legend()
-
     plt.tight_layout()  # Adjust layout to prevent clipping of x-axis labels
     st.pyplot(fig)
 
