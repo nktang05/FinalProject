@@ -118,5 +118,5 @@ option = st.selectbox(
     'What option would you like?',
     optionsList)
 selected_key = next(key for key, value in seriesDict.items() if value == option)
-table = grocery(selected_key, seriesDict)
-groceryTable(table, selected_key, seriesDict)
+df_table = grocery(selected_key, seriesDict)
+groceryTable(df_table, selected_key, seriesDict)
