@@ -52,7 +52,7 @@ def grocery(userSeriesId, result_dict):
 
     r = requests.get(url)
      #r.content
-    soup = BeautifulSoup(r.content, 'lxml')
+    soup = BeautifulSoup(r.content, 'html.parser')
     t1 = soup.find('table', {"id":"table0"})
     headerx = t1.find('thead').find('tr').find_all('th')
     header = [x.contents[0] for x in headerx]
