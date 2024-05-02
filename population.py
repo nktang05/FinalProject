@@ -101,3 +101,34 @@ def avgPop(location1, location2, yearStart = None, yearEnd = None):
 
 #year, location1, location2 = menu.menuPop()
 #avgPop(location1, location2, year[0], year[1])
+    
+def singlePop(location1, yearStart = None, yearEnd = None):
+    # Connect to the database
+    conn = sqlite3.connect('tang.db', detect_types=sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES)
+    cur = conn.cursor()
+    
+    state_names_str1 = locationString(location1)
+
+
+    year_condition = ""
+    if yearStart is not None and yearEnd is not None:
+        year_condition = f"AND Year >= {yearStart} AND Year <= {yearEnd}"
+    
+    sql_query2 = f"""
+        SELECT o.Year, AVG(population) AS avg_population
+        FROM popData o
+        JOIN states s ON o.Region = s.Name
+        WHERE s.Name IN ({state_names_str1}) {year_condition}
+        GROUP BY o.Year
+        """
+
+    # Execute the SQL query and load the results into a DataFrame
+    data2 = pd.read_sql_query(sql_query2, conn)
+    
+    # Print the results
+    print(data2)
+    
+    # Close the connection
+    conn.close()
+
+    return(data2)
