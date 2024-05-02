@@ -20,14 +20,17 @@ def unionGraphs():
 
 
     seriesDict = grocery.getSeriesId(selectFood, selectRegion)
-    optionsList = list(seriesDict.values())
-    option = st.selectbox(
-    'What option would you like?',
-    optionsList)
+    
+    if not seriesDict:
+        st.write("Please pick another food type. Recommended foods are beef, chicken, bread")
 
-
-    selected_key = next(key for key, value in seriesDict.items() if value == option)
-    food = grocery.grocery(selected_key, seriesDict)
+    else:
+        optionsList = list(seriesDict.values())
+        option = st.selectbox(
+        'What option would you like?',
+        optionsList)
+        selected_key = next(key for key, value in seriesDict.items() if value == option)
+        food = grocery.grocery(selected_key, seriesDict)
 
     obe = obesity.obesityRegion(selectRegion)
 
