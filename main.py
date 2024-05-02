@@ -33,14 +33,15 @@ def locationString(location):
         
         # Convert the list of state names to a comma-separated string for the IN clause
         state_names_str = ', '.join([f"'{state}'" for state in states])
+        return state_names_str
 
     else:
-        state_names_str = location
+        return location
 
     # Close the connection
     conn.close()
 
-    return state_names_str
+    
 
 def avgPop(location, yearStart = None, yearEnd = None):
     # Connect to the database
