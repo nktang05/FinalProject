@@ -215,4 +215,4 @@ def transpose():
     conn.commit()
     conn.close()
 
-transpose()
+#transpose()

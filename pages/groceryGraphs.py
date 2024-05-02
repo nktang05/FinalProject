@@ -15,11 +15,16 @@ Streamlit. We're generating a bunch of random numbers in a loop for around
 
 
 selectFood, selectRegion = menu.menugrocery()
+
+
 seriesDict = grocery.getSeriesId(selectFood, selectRegion)
 optionsList = list(seriesDict.values())
 option = st.selectbox(
-    'What option would you like?',
-    optionsList)
+'What option would you like?',
+optionsList)
+
+
 selected_key = next(key for key, value in seriesDict.items() if value == option)
-df_table = grocery(selected_key, seriesDict)
-grocery.groceryBox(df_table, selected_key, seriesDict)
+food = grocery.grocery(selected_key, seriesDict)
+
+grocery.groceryBox(food, selected_key, seriesDict)
