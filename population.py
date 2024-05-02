@@ -99,5 +99,5 @@ def avgPop(location1, location2, yearStart = None, yearEnd = None):
     st.pyplot(fig)
 
 
-year, location1, location2 = menu.menuPop()
-avgPop(location1, location2, year[0], year[1])
+#year, location1, location2 = menu.menuPop()
+#avgPop(location1, location2, year[0], year[1])
