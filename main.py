@@ -17,6 +17,7 @@ from bs4 import BeautifulSoup
 #loadData.loadAllData()
 
 st.set_page_config(
-    page_title="Hello Welcome to data balah blah tsutokejdfk,",
+    page_title="Hello Welcome to data balah blah tsutokejdfkasdf,",
     page_icon="👋",
 )
+

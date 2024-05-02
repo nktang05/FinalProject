@@ -20,20 +20,7 @@ def menugrocery():
     
 
     return selectFood, selectRegion
-    
-    """
-    selectRegion = st.radio(
-        'Select a region?',
-        region)
-    st.write("Your chosen region", selectRegion)
 
-    selectFood = st.radio(
-        'Select a item?',
-        foodType)
-    st.write("Your chosen food item", selectFood)
-
-    return selectFood, selectRegion
-    """
 
     
 
