@@ -35,7 +35,7 @@ def locationString(location):
         state_names_str = ', '.join([f"'{state}'" for state in states])
 
     else:
-        state_names_str = f"{location}"
+        state_names_str = location
 
     # Close the connection
     conn.close()
