@@ -64,7 +64,7 @@ def menuObestiyRegion():
     return year, selectRegion1, selectRegion2
 
 def menuUnion():
-    choice = ["Food Prices and Obesity Rates", "Food Prices and Population", "Population and Obesity"]
+    choice = ["Food Prices and Obesity Rates", "Food Prices and Population", "Population and Obesity Rates"]
     graph = st.selectbox('Select your comparison graph', choice)
     st.write("You selected:", graph)
 
