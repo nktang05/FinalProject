@@ -3,6 +3,8 @@ import pandas as pd
 import sqlite3
 import loadData
 import menu
+
+
 import matplotlib.pyplot as plt
 import seaborn as sns
 import requests
@@ -11,107 +13,39 @@ from bs4 import BeautifulSoup
 
 #loadData.loadAllData()
 
-def getSeriesId(userItem, location):
+def obesityTable(year1, year2):
+
     conn = sqlite3.connect('tang.db', detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
-    cur = conn.cursor()
-    
-    
-    # Use proper string formatting for the user input and location
-    sql_query10 = f"""
-         SELECT `Series ID`, `Series Title`
-        FROM seriesID
-        WHERE item LIKE ? AND Area = ?
-    """
-    
-    # Execute the SQL query with the user input as a parameter
-    cur.execute(sql_query10, ('%' + userItem + '%', location))
-    
-    # Fetch the results
-    results = cur.fetchall()
-    
-    # Execute the SQL query and load the results into a DataFrame
-    data10 = pd.DataFrame(results, columns=['Series ID', 'Series Title'])
-    
-    result_dict = {row[0]: row[1] for row in results}
-    
-    print(data10)
-    
-    print(result_dict)
-    
-    # Commit changes and close the connection
+
+    ## Your code here
+
+    # Construct SQL queries with placeholders for years
+    sql_query2 = f"SELECT AVG(data_value) AS '{year1}', LocationDesc FROM obesity_health WHERE YearEnd = ? AND class = 'Obesity / Weight Status' GROUP BY LocationDesc"
+    sql_query3 = f"SELECT AVG(data_value) AS '{year2}', LocationDesc FROM obesity_health WHERE YearEnd = ? AND class = 'Obesity / Weight Status' GROUP BY LocationDesc"
+
+    # Execute the SQL queries with the years as parameters
+    data2 = pd.read_sql_query(sql_query2, conn, params=(year1,))
+    data3 = pd.read_sql_query(sql_query3, conn, params=(year2,))
+
     conn.commit()
     conn.close()
 
-    return result_dict
+    fig = plt.figure()
+    plt.plot(data2['LocationDesc'], data2[str(year1)], marker='o', linestyle='-', label=str(year1))
+    plt.plot(data3['LocationDesc'], data3[str(year2)], marker='o', linestyle='-', label=str(year2))
 
+    # Adding labels and title
+    plt.xlabel('State')
+    plt.ylabel('Percentage')
+    plt.title(f"Obesity Rates by State {year1} vs {year2}")
+    plt.legend()
 
+    # Rotating x-axis labels for better readability
+    plt.xticks(rotation=90)
 
-def grocery(userSeriesId, result_dict):
-    url = f"https://data.bls.gov/timeseries/{userSeriesId}?amp%253bdata_tool=XGtable&output_view=data&include_graphs=true"
-    food = result_dict[userSeriesId]
-
-    r = requests.get(url)
-     #r.content
-    soup = BeautifulSoup(r.content, 'html.parser')
-    t1 = soup.find('table', {"id":"table0"})
-    headerx = t1.find('thead').find('tr').find_all('th')
-    header = [x.contents[0] for x in headerx]
-
-    table = []
-    index = []
-    rows = t1.find('tbody').find_all('tr')
-    for row in rows:
-        datax = row.find_all('td')
-        indexx = row.find('th')
-        data = [x.contents[0] for x in datax]
-        index.append(int(indexx.contents[0]))
-        table.append(data)
-
-    df = pd.DataFrame(data = table, index = index, columns = header[1:])
-
-    df_table = pd.DataFrame(columns = ["Year", "Month", "Price"])
-
-    for index, row in df.iterrows():
-        for col in df.columns:
-            if row[col] is not None:
-                df_table.loc[len(df_table)] = [index, col, row[col]]
-    return df_table
-                
-
-
-
-def groceryTable(table, seriesId, result_dict):
-    
-    # Replace empty strings with NaN
-    table['Price'].replace('', pd.NA, inplace=True)
-    
-    # Convert 'Price' column from string to numeric
-    table['Price'] = pd.to_numeric(table['Price'], errors='coerce')
-    
-    # Sort the data frame by 'Year'
-    table_sorted = table.sort_values(by='Year')
-    
-    
-    # Plot box-and-whisker for max and min prices
-    fig = plt.figure(figsize=(10, 6))
-    
-    # Box-and-whisker plot
-    sns.boxplot(x='Year', y='Price', data=table_sorted, whis=[0, 100])
-    plt.title('Box-and-Whisker Plot for Prices of ' + result_dict[seriesId])
-    plt.xlabel('Year')
-    plt.ylabel('Price')
-    
-    plt.tight_layout()
-    plt.show()
+    # Display the plot
+    plt.tight_layout()  # Adjust layout to prevent clipping of x-axis labels
     st.pyplot(fig)
 
-
-selectFood, selectRegion = menu.menu()
-seriesDict = getSeriesId(selectFood, selectRegion)
-optionsList = list(seriesDict.values())
-option = st.selectbox(
-    'What option would you like?',
-    optionsList)
-selected_key = next(key for key, value in seriesDict.items() if value == option)
-df_table = grocery(selected_key, seriesDict)
-groceryTable(df_table, selected_key, seriesDict)
+year1, year2 = menu.menuObesity()
+obesityTable(year1, year2)
