@@ -90,5 +90,4 @@ def avgPop(location, yearStart = None, yearEnd = None):
 
 
 year, location = menu.menuPop()
-#myLoc = locationString(location)
 avgPop(location, year[0], year[1])
