@@ -9,7 +9,7 @@ import streamlit as st
 
 
 
-def getSeriesId(userItem, location):
+def getSeriesId(userItem = 'beef', location = 'Northeast'):
     conn = sqlite3.connect('tang.db', detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
     cur = conn.cursor()
     
@@ -76,7 +76,7 @@ def grocery(userSeriesId, result_dict):
 
     df_table = df_table[df_table['Price'] != '\xa0']
     df_table['Price'] = df_table['Price'].astype(float)
-    
+
     return df_table
                 
 

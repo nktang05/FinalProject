@@ -17,8 +17,6 @@ from bs4 import BeautifulSoup
 
 graph = menu.menuUnion()
 
-selectFood = "beef"
-selectRegion = "Northeast"
 selectFood, selectRegion = menu.menugrocery()
 
 if selectFood is not None and selectRegion is not None:
