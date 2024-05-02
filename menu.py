@@ -6,7 +6,7 @@ def menugrocery():
     foodType = ["beef", "chicken", "bread", "apples"]
     region = ["Northeast", "West", "South", "Midwest"]
 
-    """
+    
     selectRegion = st.selectbox(
         'Select a region?',
         region, placeholder = "Northeast")
@@ -20,8 +20,8 @@ def menugrocery():
     
 
     return selectFood, selectRegion
+    
     """
-
     selectRegion = st.radio(
         'Select a region?',
         region)
@@ -33,6 +33,7 @@ def menugrocery():
     st.write("Your chosen food item", selectFood)
 
     return selectFood, selectRegion
+    """
 
     
 
