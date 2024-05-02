@@ -20,7 +20,7 @@ def menugrocery():
     """
     
     selectFood = st.text_input('Select Food Type', 'beef')
-    st.write("Your chosen food item", selectFood)
+    st.write("Your chosen food item is", selectFood)
 
     selectFood.strip()
 

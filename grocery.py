@@ -9,7 +9,7 @@ import streamlit as st
 
 
 
-def getSeriesId(userItem = 'beef', location = 'Northeast'):
+def getSeriesId(userItem, location):
     conn = sqlite3.connect('tang.db', detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
     cur = conn.cursor()
     
