@@ -71,6 +71,16 @@ elif(graph == "Population and Obesity Rates"):
     #line2,  = ax2.plot(obe['Year'], obe['Avg_Obesity_Rate'], label='Obesity Rate', color = "green")
     ax2.set_ylabel('Population')
 
+else:
+    #line1,  = ax.plot(obe['Year'], obe['Avg_Obesity_Rate'], label='Obesity Rate', color = "red")
+    line1,  = ax.plot(pop["Year"], pop['avg_population'], label = 'Population', color = "green")
+    ax.set_xlabel('Years')
+    ax.set_ylabel('Obesity Rates')
+
+    ax2 = ax.twinx()
+    line2,  = ax2.plot(pop["Year"], pop['avg_population'], label = 'Population', color = "green")
+    #line2,  = ax2.plot(obe['Year'], obe['Avg_Obesity_Rate'], label='Obesity Rate', color = "green")
+    ax2.set_ylabel('Population')
 
 #plot food and obesity
 ax2.legend(handles=[line1, line2])
