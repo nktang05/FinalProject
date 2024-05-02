@@ -53,7 +53,6 @@ def avgPop(location, yearStart = None, yearEnd = None):
     if yearStart is not None and yearEnd is not None:
         year_condition = f"AND Year >= {yearStart} AND Year <= {yearEnd}"
     
-    # SQL query to calculate the average data value for each year in the West region
     sql_query2 = f"""
         SELECT o.Year, AVG(population) AS avg_population
         FROM popData o
@@ -61,9 +60,9 @@ def avgPop(location, yearStart = None, yearEnd = None):
         WHERE s.Name IN ({state_names_str}) {year_condition}
         GROUP BY o.Year
         """
-    
+
     # Execute the SQL query and load the results into a DataFrame
-    data2 = pd.read_sql(sql_query2, conn)
+    data2 = pd.read_sql_query(sql_query2, conn)
     
     # Print the results
     print(data2)
