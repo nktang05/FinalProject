@@ -125,6 +125,8 @@ def singlePop(location1, yearStart = None, yearEnd = None):
     # Execute the SQL query and load the results into a DataFrame
     data2 = pd.read_sql_query(sql_query2, conn)
     
+    data2['Year'] = data2['Year'].astype(int)
+
     # Print the results
     print(data2)
     
@@ -132,3 +134,5 @@ def singlePop(location1, yearStart = None, yearEnd = None):
     conn.close()
 
     return(data2)
+
+
