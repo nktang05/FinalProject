@@ -34,12 +34,13 @@ def locationString(location):
         # Convert the list of state names to a comma-separated string for the IN clause
         state_names_str = ', '.join([f"'{state}'" for state in states])
         return state_names_str
+        # Close the connection
+        conn.close()
 
     else:
-        return location
+        return f"'{location}'"
 
-    # Close the connection
-    conn.close()
+    
 
     
 
@@ -89,5 +90,5 @@ def avgPop(location, yearStart = None, yearEnd = None):
 
 
 year, location = menu.menuPop()
-myLoc = locationString(location)
-avgPop(myLoc, year[0], year[1])
+#myLoc = locationString(location)
+avgPop(location, year[0], year[1])
