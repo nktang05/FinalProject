@@ -1,6 +1,6 @@
 streamlit
 pandas
 openpyxl
-bs4
+BeautifulSoup
 matplotlib
 seaborn
