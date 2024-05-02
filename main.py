@@ -17,6 +17,8 @@ from bs4 import BeautifulSoup
 
 graph = menu.menuUnion()
 
+selectFood = "beef"
+selectRegion = "Northeast"
 selectFood, selectRegion = menu.menugrocery()
 
 seriesDict = grocery.getSeriesId(selectFood, selectRegion)
