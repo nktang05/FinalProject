@@ -1,10 +1,7 @@
 import streamlit as st
-import loadData
 import pandas as pd
 import sqlite3
-import loadObesity
-import loadPop
-import loadSeriesId
+import loadData
 
 
 
@@ -12,9 +9,9 @@ st.write("hello World")
 print("hi")
 
 
-print("data loaded")
+#loadData.loadAllData()
 
-#loadSeriesId.get_series_data()
+
 
 conn = sqlite3.connect('tang.db', detect_types=sqlite3.PARSE_DECLTYPES|sqlite3.PARSE_COLNAMES)
 cur = conn.cursor()
