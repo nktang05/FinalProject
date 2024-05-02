@@ -35,9 +35,9 @@ line1, = ax.plot(food['Year'], food['Price'], linestyle = "--", color = "blue", 
 ax.set_xlabel('Years')
 ax.set_ylabel('Data1')
 
-ax2 = ax.twinx()
-line2,  = ax2.plot(obe['Year'], obe['Avg_Obesity_Rate'], label='Obesity Rate', color = "red")
-ax2.set_ylabel('Data2')
+#ax2 = ax.twinx()
+#line2,  = ax2.plot(obe['Year'], obe['Avg_Obesity_Rate'], label='Obesity Rate', color = "red")
+#ax2.set_ylabel('Data2')
 
 ax3 = ax.twinx()
 line3, = ax3.plot(pop["Year"], pop['avg_population'], label = 'Population', color = "green")
