@@ -6,7 +6,7 @@ import menu
 
 st.set_page_config(page_title="Obesity Demo", page_icon="📈")
 
-st.markdown("# Obestiy Demo")
+st.markdown("# Obesity Demo")
 #st.sidebar.header("Obesity Demo")
 st.write(
     """This demo illustrates a combination of plotting and animation with
