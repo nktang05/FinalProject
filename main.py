@@ -82,6 +82,8 @@ def obesityRegion(location1, location2, yearStart = None, yearEnd = None):
     
     # Print the results
     print(data2)
+
+    st.write("test")
     
     # Plot the data
     fig = plt.figure()
