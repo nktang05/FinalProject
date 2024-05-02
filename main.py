@@ -44,12 +44,13 @@ def locationString(location):
 
     
 
-def avgPop(location, yearStart = None, yearEnd = None):
+def avgPop(location1, location2, yearStart = None, yearEnd = None):
     # Connect to the database
     conn = sqlite3.connect('tang.db', detect_types=sqlite3.PARSE_DECLTYPES | sqlite3.PARSE_COLNAMES)
     cur = conn.cursor()
     
-    state_names_str = locationString(location)
+    state_names_str1 = locationString(location1)
+    state_names_str2 = locationString(location2)
 
     year_condition = ""
     if yearStart is not None and yearEnd is not None:
@@ -59,12 +60,23 @@ def avgPop(location, yearStart = None, yearEnd = None):
         SELECT o.Year, AVG(population) AS avg_population
         FROM popData o
         JOIN states s ON o.Region = s.Name
-        WHERE s.Name IN ({state_names_str}) {year_condition}
+        WHERE s.Name IN ({state_names_str1}) {year_condition}
         GROUP BY o.Year
         """
 
     # Execute the SQL query and load the results into a DataFrame
     data2 = pd.read_sql_query(sql_query2, conn)
+
+    sql_query3 = f"""
+        SELECT o.Year, AVG(population) AS avg_population
+        FROM popData o
+        JOIN states s ON o.Region = s.Name
+        WHERE s.Name IN ({state_names_str2}) {year_condition}
+        GROUP BY o.Year
+        """
+
+    # Execute the SQL query and load the results into a DataFrame
+    data3 = pd.read_sql_query(sql_query3, conn)
     
     # Print the results
     print(data2)
@@ -74,13 +86,14 @@ def avgPop(location, yearStart = None, yearEnd = None):
 
     # Plot the data
     fig = plt.figure()
-    plt.plot(data2['Year'], data2['avg_population'], label='Average Population')
+    plt.plot(data2['Year'], data2['avg_population'], label=location1)
+    plt.plot(data3['Year'], data3['avg_population'], label=location2)
 
 
     # Add labels and title
     plt.xlabel('Year')
     plt.ylabel('Population')
-    plt.title(f"Average Population in {location} from {yearStart} to {yearEnd}")
+    plt.title(f"Average Population in {location1} vs {location2} from {yearStart} to {yearEnd}")
 
     # Add legend
     plt.legend()
@@ -89,5 +102,5 @@ def avgPop(location, yearStart = None, yearEnd = None):
     st.pyplot(fig)
 
 
-year, location = menu.menuPop()
-avgPop(location, year[0], year[1])
+year, location1, location2 = menu.menuPop()
+avgPop(location1, location2, year[0], year[1])
