@@ -20,8 +20,8 @@ def obesityTable(year1, year2):
     ## Your code here
 
     # Construct SQL queries with placeholders for years
-    sql_query2 = f"SELECT AVG(data_value) AS '{year1}', LocationDesc FROM obesity_health WHERE YearEnd = ? AND class = 'Obesity / Weight Status' GROUP BY LocationDesc"
-    sql_query3 = f"SELECT AVG(data_value) AS '{year2}', LocationDesc FROM obesity_health WHERE YearEnd = ? AND class = 'Obesity / Weight Status' GROUP BY LocationDesc"
+    sql_query2 = f"SELECT AVG(data_value) AS '{year1}', LocationDesc FROM obesity_health WHERE YearEnd = ? AND class = 'Obesity / Weight Status' GROUP BY LocationDesc Order By LocationDesc ASC"
+    sql_query3 = f"SELECT AVG(data_value) AS '{year2}', LocationDesc FROM obesity_health WHERE YearEnd = ? AND class = 'Obesity / Weight Status' GROUP BY LocationDesc Order By LocationDesc ASC"
 
     # Execute the SQL queries with the years as parameters
     data2 = pd.read_sql_query(sql_query2, conn, params=(year1,))
