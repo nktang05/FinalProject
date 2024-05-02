@@ -21,60 +21,64 @@ selectFood = "beef"
 selectRegion = "Northeast"
 selectFood, selectRegion = menu.menugrocery()
 
-seriesDict = grocery.getSeriesId(selectFood, selectRegion)
-optionsList = list(seriesDict.values())
-option = st.selectbox(
-    'What option would you like?',
-    optionsList)
-selected_key = next(key for key, value in seriesDict.items() if value == option)
-food = grocery.grocery(selected_key, seriesDict)
+if selectFood is not None and selectRegion is not None:
 
-obe = obesity.obesityRegion(selectRegion)
+    seriesDict = grocery.getSeriesId(selectFood, selectRegion)
+    optionsList = list(seriesDict.values())
+    option = st.selectbox(
+        'What option would you like?',
+        optionsList)
+    
+    if option is not None: 
+        selected_key = next(key for key, value in seriesDict.items() if value == option)
+        food = grocery.grocery(selected_key, seriesDict)
 
-print("Data2")
-pop = population.singlePop(selectRegion)
+        obe = obesity.obesityRegion(selectRegion)
 
-food_price_avg = food.groupby("Year")['Price'].mean()
+        print("Data2")
+        pop = population.singlePop(selectRegion)
 
-print(food_price_avg.index)
+        food_price_avg = food.groupby("Year")['Price'].mean()
 
-fig, ax = plt.subplots()
+        print(food_price_avg.index)
 
-if (graph == "Food Prices and Obesity Rates"):
+        fig, ax = plt.subplots()
 
-    line1, = ax.plot(food_price_avg.index, food_price_avg, linestyle = "--", color = "blue", label='Price')
-    ax.set_xlabel('Years')
-    ax.set_ylabel('Food Prices')
+        if (graph == "Food Prices and Obesity Rates"):
 
-    ax2 = ax.twinx()
-    line2,  = ax2.plot(obe['Year'], obe['Avg_Obesity_Rate'], label='Obesity Rate', color = "red")
-    ax2.set_ylabel('Obesity Rates')
+            line1, = ax.plot(food_price_avg.index, food_price_avg, linestyle = "--", color = "blue", label='Price')
+            ax.set_xlabel('Years')
+            ax.set_ylabel('Food Prices')
 
-elif(graph == "Food Prices and Population"):
+            ax2 = ax.twinx()
+            line2,  = ax2.plot(obe['Year'], obe['Avg_Obesity_Rate'], label='Obesity Rate', color = "red")
+            ax2.set_ylabel('Obesity Rates')
 
-    line1, = ax.plot(food_price_avg.index, food_price_avg, linestyle = "--", color = "blue", label='Price')
-    ax.set_xlabel('Years')
-    ax.set_ylabel('Food Prices')
+        elif(graph == "Food Prices and Population"):
 
-    ax2 = ax.twinx()
-    line2,  = ax2.plot(pop["Year"], pop['avg_population'], label = 'Population', color = "green")
-    ax2.set_ylabel('Population')
+            line1, = ax.plot(food_price_avg.index, food_price_avg, linestyle = "--", color = "blue", label='Price')
+            ax.set_xlabel('Years')
+            ax.set_ylabel('Food Prices')
 
-elif(graph == "Population and Obesity Rates"):
-    line1,  = ax.plot(obe['Year'], obe['Avg_Obesity_Rate'], label='Obesity Rate', color = "red")
-    ax.set_xlabel('Years')
-    ax.set_ylabel('Obesity Rates')
+            ax2 = ax.twinx()
+            line2,  = ax2.plot(pop["Year"], pop['avg_population'], label = 'Population', color = "green")
+            ax2.set_ylabel('Population')
 
-    ax2 = ax.twinx()
-    line2,  = ax2.plot(pop["Year"], pop['avg_population'], label = 'Population', color = "green")
-    ax2.set_ylabel('Population')
+        elif(graph == "Population and Obesity Rates"):
+            line1,  = ax.plot(obe['Year'], obe['Avg_Obesity_Rate'], label='Obesity Rate', color = "red")
+            ax.set_xlabel('Years')
+            ax.set_ylabel('Obesity Rates')
+
+            ax2 = ax.twinx()
+            line2,  = ax2.plot(pop["Year"], pop['avg_population'], label = 'Population', color = "green")
+            ax2.set_ylabel('Population')
 
 
-#plot food and obesity
-ax2.legend(handles=[line1, line2])
+        #plot food and obesity
+        ax2.legend(handles=[line1, line2])
 
-plt.tight_layout()
-plt.title('2 plots')
+        plt.tight_layout()
+        plt.title('2 plots')
 
-st.pyplot(fig)
+        st.pyplot(fig)
 
