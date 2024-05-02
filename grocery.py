@@ -32,10 +32,6 @@ def getSeriesId(userItem = 'beef', location = 'Northeast'):
     
     result_dict = {row[0]: row[1] for row in results}
     
-    print(data10)
-    
-    print(result_dict)
-    
     # Commit changes and close the connection
     conn.commit()
     conn.close()
