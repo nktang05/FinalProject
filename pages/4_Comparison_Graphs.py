@@ -2,13 +2,14 @@ import streamlit as st
 import numpy as np
 import union
 
-
+# set titles and headers
 st.set_page_config(page_title="Union Demo", page_icon="📈")
-
 st.markdown("# Union Demo")
+
+# explanation of data
 st.write(
-    """This demo illustrates a combination of plotting and animation with
-Streamlit. We're generating a bunch of random numbers in a loop for around
-5 seconds. Enjoy!"""
+    """This visualization tool helps show if there is any possible correlation between any of the three variables: population, obesity rates, and food prices. Pick the option of which variables you would like to compare. Pick your choice of regions and food choices."""
 )
+
+# run method to get graph
 union.unionGraphs()
