@@ -3,8 +3,8 @@ import numpy as np
 import union
 
 # set titles and headers
-st.set_page_config(page_title="Union Demo", page_icon="📈")
-st.markdown("# Union Demo")
+st.set_page_config(page_title="Union Graphs", page_icon="📈")
+st.markdown("# Union Graphs")
 
 # explanation of data
 st.write(

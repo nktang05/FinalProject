@@ -12,7 +12,7 @@ st.write(
     but no other data in my database is from them. All variables for the most part increased over time so population has increased, food has increased, and obesity rates have also increased. Living is getting more expensive.""" )
 
 st.write(
-"What did you set out to study?  (i.e. what was the point of your project?  This should be close to your Milestone 1 assignment, but if you switched gears or changed things, note it here."
+"**What did you set out to study?  (i.e. what was the point of your project?  This should be close to your Milestone 1 assignment, but if you switched gears or changed things, note it here.**"
 )
 st.write(
     """ I am hoping to uncover patterns in grocery prices and population size over time, and
@@ -26,14 +26,14 @@ there has been no drastic change in the population yet the prices still increase
 )
 
 st.write(
-"What did you Discover/what were your conclusions (i.e. what were your findings?  Were your original assumptions confirmed, etc.?)"
+"**What did you Discover/what were your conclusions (i.e. what were your findings?  Were your original assumptions confirmed, etc.?)**"
 )
 st.write(
     " My original assumptions of them being correlated was confirmed. All appear to be positively correlated and increase over time. There are some outlier year and sometimes there is less data points than prefered. However, more research and statistical analysis is necessary to dive deeper and learn more. "
 )
 
 st.write(
-    "What difficulties did you have in completing the project?  "
+    "**What difficulties did you have in completing the project?**"
 )
 st.write(
     """ The hardest part was learning the different software/libraries whether it was streamlit, github, or vs code after using juypyter all year . There was definietly a learning curve. It was also hard to find an api that had data that was easy access and free. I have also never learned 
@@ -41,7 +41,7 @@ st.write(
 )
 
 st.write(
-    "What skills did you wish you had while you were doing the project?"
+    "**What skills did you wish you had while you were doing the project?**"
 )
 st.write(
     """I wish I new a little more html because that would have made understanding tags and webscraping easier. I also wish I new more about streamlit because I hadn't used that before either and learning new software always has a learning curve as it takes a while to understand how it
@@ -49,7 +49,7 @@ st.write(
 )
 
 st.write(
-    "What would you do “next” to expand or augment the project? "
+    "**What would you do “next” to expand or augment the project?**"
 )
 
 st.write(
