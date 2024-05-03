@@ -12,8 +12,8 @@ st.write("""
         https://www.bls.gov
 
 
-        API fot Downloading for Times Series by Series ID:
-        https://beta.bls.gov/dataQuery/find
+        API for Downloading Times Series for Series ID:
+        https://beta.bls.gov/dataQuery
 
 
         This website is scrapable. It contains the data for prices of different groceries over periods of time. 
