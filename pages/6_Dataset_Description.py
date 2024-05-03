@@ -5,8 +5,8 @@ import numpy as np
 st.set_page_config(page_title="Dataset Descriptions", page_icon="📈")
 st.markdown("# Dataset Descriptions")
 
-st.write(
-    """ **Grocery Data Souce- From the US Bureau of Labor Statistcs**
+st.write(""" 
+         **Grocery Data Souce- From the US Bureau of Labor Statistcs**
 
         URL for website:
         https://www.bls.gov
@@ -16,7 +16,10 @@ st.write(
         https://beta.bls.gov/dataQuery/find
 
 
-        This website is scrapable. It contains the data for prices of different groceries over periods of time. I can also sort it by area of the US for example west, south, midwest etc. The different grocery options are sorted by a Series ID. Using the seriesID I go back into the website and get the specific grocery p[rice data for food with that seriesID. I wrote multiple functions to get user input of food, find seriesIDs with use food in the label, let user pick which seriesID they want and then return it in a data frame to be used
+        This website is scrapable. It contains the data for prices of different groceries over periods of time. 
+        I can also sort it by area of the US for example west, south, midwest etc. The different grocery options 
+        are sorted by a Series ID. Using the seriesID I go back into the website and get the specific grocery price data for food with that seriesID. 
+        I wrote multiple functions to get user input of food, find seriesIDs with use food in the label, let user pick which seriesID they want and then return it in a data frame to be used
     """ )
 
 st.write("""
