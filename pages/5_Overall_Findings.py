@@ -37,7 +37,8 @@ st.write(
 )
 st.write(
     """ The hardest part was learning the different software/libraries whether it was streamlit, github, or vs code after using juypyter all year . There was definietly a learning curve. It was also hard to find an api that had data that was easy access and free. I have also never learned 
-    html so the tags and webscraping was a bit difficult.  """
+    html so the tags and webscraping was a bit difficult. Also, the requirements.txt file and which libraries need to be in it stumped me for a bit. Note to self: put matplotlib and bs4 in requirements.txt and don't put sqlite3 and seaborn. Also because my website for the grocery data appears to be in beta testing
+    there was a good few days where the site was down and sent me panicing."""
 )
 
 st.write(
