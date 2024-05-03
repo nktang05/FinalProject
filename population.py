@@ -90,7 +90,7 @@ def avgPop(location1, location2, yearStart = None, yearEnd = None):
     # Add labels and title
     plt.xlabel('Year')
     plt.ylabel('Population')
-    plt.title(f"Average Population in {location1} vs {location2} from {yearStart} to {yearEnd}")
+    plt.title(f"Population in {location1} vs {location2} from {yearStart} to {yearEnd}")
 
     # Add legend
     plt.legend()
@@ -134,5 +134,4 @@ def singlePop(location1, yearStart = None, yearEnd = None):
     conn.close()
 
     return(data2)
-
 

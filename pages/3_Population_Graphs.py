@@ -4,15 +4,17 @@ import numpy as np
 import population
 import menu
 
-st.set_page_config(page_title="Plotting Demo", page_icon="📈")
+# set titles and headers
+st.set_page_config(page_title="Population Graphs", page_icon="📈")
+st.markdown("# Population Graphs")
 
-st.markdown("# Plotting Demo")
+# explanation of data
 st.write(
-    """This demo illustrates a combination of plotting and animation with
-Streamlit. We're generating a bunch of random numbers in a loop for around
-5 seconds. Enjoy!"""
+    """This is a visualization of population difference across two locations. Choose two locations to compare and a year."""
 )
 
+# get user year and locations
 year, location1, location2 = menu.menuPop()
+# graph the population across regions
 population.avgPop(location1, location2, year[0], year[1])
 
