@@ -29,8 +29,8 @@ def obesityTable(year1, year2):
     conn.close()
 
     fig = plt.figure()
-    plt.plot(data2['LocationDesc'], data2[str(year1)], marker='o', linestyle='-', label=str(year1))
-    plt.plot(data3['LocationDesc'], data3[str(year2)], marker='o', linestyle='-', label=str(year2))
+    plt.plot(data2['LocationDesc'], data2[str(year1)], marker='o', linestyle="", label=str(year1))
+    plt.plot(data3['LocationDesc'], data3[str(year2)], marker='o', linestyle="", label=str(year2))
 
     # Adding labels and title
     plt.xlabel('State')
