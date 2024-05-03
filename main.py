@@ -1,21 +1,9 @@
 import streamlit as st
-import pandas as pd
-import sqlite3
-import loadData
-import menu
-import grocery
-import obesity
-import population
-import union
 
-
-import matplotlib.pyplot as plt
-import seaborn as sns
-import requests
-from bs4 import BeautifulSoup
-
+# method to load all data into the database. I uploaded it already so I am no longer running it and running it takes a long time
 #loadData.loadAllData()
 
+# set text headers and titles
 st.set_page_config(
     page_title="DSCI510-FinalProject",
     page_icon="👋",
