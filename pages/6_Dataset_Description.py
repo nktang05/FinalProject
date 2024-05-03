@@ -2,10 +2,9 @@ import streamlit as st
 import numpy as np
 
 
-
 st.set_page_config(page_title="Dataset Descriptions", page_icon="📈")
+st.markdown("# Dataset Descriptions")
 
-st.markdown("**Dataset Descriptions**")
 st.write(
     """ **Grocery Data Souce- From the US Bureau of Labor Statistcs**
 

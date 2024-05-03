@@ -5,8 +5,8 @@ import obesity
 import menu
 
 # set titles and headers
-st.set_page_config(page_title="Obesity Graph", page_icon="📈")
-st.markdown("# Obesity Groph")
+st.set_page_config(page_title="Obesity Graphs", page_icon="📈")
+st.markdown("# Obesity Graphs")
 
 # explanation of data
 st.write(

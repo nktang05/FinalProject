@@ -4,7 +4,7 @@ import numpy as np
 # set titles and headers
 st.set_page_config(page_title="Short Question Responses", page_icon="📈")
 
-st.markdown("# Short Question Response")
+st.markdown("# Short Question Responses")
 
 # answer short answer questions
 st.write(
@@ -37,7 +37,7 @@ st.write(
 )
 st.write(
     """ The hardest part was learning the different software/libraries whether it was streamlit, github, or vs code after using juypyter all year . There was definietly a learning curve. It was also hard to find an api that had data that was easy access and free. I have also never learned 
-    so the tags and webscraping was a bit difficult.  """
+    html so the tags and webscraping was a bit difficult.  """
 )
 
 st.write(

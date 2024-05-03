@@ -5,8 +5,8 @@ import grocery
 import menu
 
 # set titles and headers
-st.set_page_config(page_title="Grocery Graph", page_icon="📈")
-st.markdown("# Grocery Graph")
+st.set_page_config(page_title="Grocery Graphs", page_icon="📈")
+st.markdown("# Grocery Graphs")
 
 # explanation of data
 st.write(
